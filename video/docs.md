@@ -2,7 +2,7 @@
 
 <p align="center">
   <a href="https://github.com/remotion-dev/logo">
-    <img src="https://github.com/remotion-dev/logo/raw/main/withtitle/element-0.png">
+    <img src="https://github.com/remotion-dev/logo/raw/main/withtitle/element-0.png" style="max-height: 200px">
   </a>
 </p>
 
