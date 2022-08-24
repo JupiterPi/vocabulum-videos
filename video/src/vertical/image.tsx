@@ -10,7 +10,7 @@ export const BackgroundImage: React.FC<{
     const zoom = interpolate(
         frame,
         [0, zoomDuration],
-        [1.1, zoomTarget],
+        [1.2, zoomTarget],
         {
             extrapolateLeft: "clamp",
             extrapolateRight: "clamp"

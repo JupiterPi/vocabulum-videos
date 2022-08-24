@@ -2,21 +2,30 @@ import {Easing, interpolate, useCurrentFrame} from "remotion";
 
 export const Title: React.FC<{
     text: string;
+    color: string;
     transitionDuration: number;
+    delay: number;
     fontFamily: string;
-}> = ({text, transitionDuration, fontFamily}) => {
-    const frame = useCurrentFrame();
+}> = ({text, color, transitionDuration, delay, fontFamily}) => {
+    const frame = useCurrentFrame() - delay;
 
     const words = text.split(" ");
 
+    const fontSize = interpolate(
+        text.length,
+        ["sol".length, "quaemadmodum".length],
+        [160, 120]
+    )
+
     return (
         <div style={{
-            color: "black",
+            color,
             fontFamily,
-            fontSize: "100px",
+            fontSize: `${fontSize}px`,
             display: "flex",
             flexDirection: "row",
             justifyContent: "center",
+            flexWrap: "wrap",
             gap: "20px"
         }}>
             {words.map((word, i) => {

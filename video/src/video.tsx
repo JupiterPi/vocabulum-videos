@@ -2,6 +2,12 @@ import {Composition} from 'remotion';
 import {VerticalVideo} from './vertical/vertical';
 
 export const VocabulumVideos: React.FC = () => {
+	const pictureLinks = [
+		"https://images.pexels.com/photos/301599/pexels-photo-301599.jpeg",
+		"https://images.pexels.com/photos/7277042/pexels-photo-7277042.jpeg",
+		"https://images.pexels.com/photos/5607365/pexels-photo-5607365.jpeg",
+		"https://images.pexels.com/photos/2098427/pexels-photo-2098427.jpeg"
+	];
 	return (
 		<>
 			<Composition
@@ -12,8 +18,9 @@ export const VocabulumVideos: React.FC = () => {
 				width={1080}
 				height={1920}
 				defaultProps={{
-					titleText: "sol, solis m.",
-					pictureLink: "https://images.pexels.com/photos/301599/pexels-photo-301599.jpeg"
+					baseForm: "amicus",
+					baseTranslation: "der Freund",
+					imageLink: pictureLinks[2]
 				}}
 			/>
 		</>

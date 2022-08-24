@@ -10,7 +10,7 @@ export const render = async () => {
     await bulkRendering.renderPortion("1a"); */
 
     console.log("rendering one vocabulary");
-    const vocabulary = await db.collections.wordbaseCollection.findOne({base_form: "silentium"}) as Vocabulary;
+    const vocabulary = await db.collections.wordbaseCollection.findOne({base_form: "canis"}) as Vocabulary;
     await bulkRendering.renderVocabulary(vocabulary);
 };
 
