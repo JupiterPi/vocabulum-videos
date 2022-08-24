@@ -1,4 +1,4 @@
 import {registerRoot} from 'remotion';
-import {VocabulumVideos} from './Video';
+import {VocabulumVideos} from './video';
 
 registerRoot(VocabulumVideos);

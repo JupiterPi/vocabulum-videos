@@ -1,6 +1,7 @@
-import {AbsoluteFill, Img, Sequence, useCurrentFrame, useVideoConfig} from "remotion";
+import {AbsoluteFill, Img, Sequence} from "remotion";
 import {Title} from "./Title";
-import "./font.css";
+import "../font.css";
+import {BackgroundImage, ForegroundImage} from "./image";
 
 export const VerticalVideo: React.FC<{
 	titleText: string;
@@ -11,7 +12,8 @@ export const VerticalVideo: React.FC<{
 			backgroundColor: "white"
 		}}>
 
-			<Img src={pictureLink} />
+			<BackgroundImage zoomDuration={150} zoomTarget={1.4} pictureLink={pictureLink} />
+			<ForegroundImage pictureLink={pictureLink} />
 
 			<Sequence from={30}>
 				<AbsoluteFill style={{

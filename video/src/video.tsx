@@ -1,5 +1,5 @@
 import {Composition} from 'remotion';
-import {VerticalVideo} from './vertical';
+import {VerticalVideo} from './vertical/vertical';
 
 export const VocabulumVideos: React.FC = () => {
 	return (
@@ -12,7 +12,7 @@ export const VocabulumVideos: React.FC = () => {
 				width={1080}
 				height={1920}
 				defaultProps={{
-					titleText: "amicus, amici m.",
+					titleText: "sol, solis m.",
 					pictureLink: "https://images.pexels.com/photos/301599/pexels-photo-301599.jpeg"
 				}}
 			/>

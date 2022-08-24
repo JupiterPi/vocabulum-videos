@@ -1,35 +1,17 @@
-// See https://www.remotion.dev/docs/ssr
+import {Vocabulary} from "./db_service";
 
-import path from "path";
-import { bundle } from "@remotion/bundler";
-import { getCompositions, renderMedia } from "@remotion/renderer";
+const bulkRendering = require("./bulk_rendering");
 
-const render = async () => {
-    const compositionId = "vertical";
-    const inputProps = {
-        foo: "bar",
-    };
+export const render = async () => {
+    const db = require("./db_service");
+    await db.connectToDatabase();
 
-    const entry = "src/index.tsx";
-    console.log("Creating a Webpack bundle of the video");
-    const bundleLocation = await bundle(path.resolve(entry), () => undefined);
-    const comps = await getCompositions(bundleLocation, { inputProps });
-    const composition = comps.find((c) => c.id === compositionId);
+    /* console.log("bulk-rendering portion 1a");
+    await bulkRendering.renderPortion("1a"); */
 
-    if (!composition) {
-        throw new Error(`No composition with the ID ${compositionId} found. Review "${entry}" for the correct ID.`);
-    }
-
-    const outputLocation = `render/${compositionId}.mp4`;
-    console.log("Attempting to render:", outputLocation);
-    await renderMedia({
-        composition,
-        serveUrl: bundleLocation,
-        codec: "h264",
-        outputLocation,
-        inputProps,
-    });
-    console.log("Render done!");
+    console.log("rendering one vocabulary");
+    const vocabulary = await db.collections.wordbaseCollection.findOne({base_form: "silentium"}) as Vocabulary;
+    await bulkRendering.renderVocabulary(vocabulary);
 };
 
 render();

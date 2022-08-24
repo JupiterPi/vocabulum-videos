@@ -1,4 +1,4 @@
-import {Easing, interpolate, spring, useCurrentFrame, useVideoConfig} from "remotion";
+import {Easing, interpolate, useCurrentFrame} from "remotion";
 
 export const Title: React.FC<{
     text: string;
@@ -6,14 +6,13 @@ export const Title: React.FC<{
     fontFamily: string;
 }> = ({text, transitionDuration, fontFamily}) => {
     const frame = useCurrentFrame();
-    const { durationInFrames, fps } = useVideoConfig();
 
     const words = text.split(" ");
 
     return (
         <div style={{
             color: "black",
-            fontFamily: fontFamily,
+            fontFamily,
             fontSize: "100px",
             display: "flex",
             flexDirection: "row",
